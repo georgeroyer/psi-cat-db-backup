@@ -8,6 +8,8 @@ public class NewRagCont : MonoBehaviour {
 	public ragdollControl ragScript;
 	public ICode.ICodeBehaviour aiScript;
 	private string hitobject;
+	public Rigidbody pelvis;
+
 
 	
 	void Start (){
@@ -28,16 +30,16 @@ public class NewRagCont : MonoBehaviour {
 		foreach (ContactPoint contact in other.contacts) {
 			if (other.gameObject.tag.Equals ("canHit")) {
 				Debug.Log ("hit green man");
-				//if (collision.relativeVelocity.magnitude > 2) {
+				if (other.relativeVelocity.magnitude > 20) {
+					//if (collision.relativeVelocity.magnitude > 2) {
 					//gameObject.GetComponent<ragdollControl>().enabled = true;
 					ragScript.enabled = true;
 					aiScript.SetNode ("Ded");
+					rigidbody.AddRelativeForce (contact.point * 10);
 					break;
+				}
 				//}
 			}
 		}
-
 	}
 }
-
-

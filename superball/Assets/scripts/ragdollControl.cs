@@ -6,13 +6,8 @@ public class ragdollControl : MonoBehaviour {
 		
 		public Component[] bones;
 		public Animator anim;
-
 		public bool isDead;
-
-		
-		
-		//weirdo_ragdoll
-		// Use this for initialization
+	
 		void Start () {
 			
 			bones = gameObject.GetComponentsInChildren<Rigidbody> (); 
@@ -21,14 +16,13 @@ public class ragdollControl : MonoBehaviour {
 		}
 
 		void Update (){
-		if (Input.GetKeyDown ("p")) {
-			isDead = true;
-		}
+
+
 			
 		{
 			if (isDead)
 				killRagdoll ();
-				//killAI ();
+				
 				
 			
 		}
@@ -45,9 +39,6 @@ public class ragdollControl : MonoBehaviour {
 			anim.enabled = false;
 			//anim.StopPlayback();
 		}
-	//void killAI ()
-	//{
-		//aiOn = false;
 
-//}
+
 }
