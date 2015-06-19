@@ -1,20 +1,20 @@
 ﻿using UnityEngine;
 using System.Collections;
-
-public class cubemaker : MonoBehaviour {
+[System.Serializable]
+public class objectspawner : MonoBehaviour {
 
 	public GameObject Cubeprefab;
 	public GameObject cubeorigin;
 	private Vector3 SpawnPosition;
 	private int DistancetoCamera; 
 	public GameObject MainCamera;
-
-
+	
+	
 	void Start (){
 		MainCamera = (GameObject)GameObject.FindWithTag ("MainCamera");
 		DistancetoCamera = 5;
 	}
-
+	
 	void Update ()
 	{
 		if (Input.GetKeyDown ("x")) {
@@ -22,12 +22,8 @@ public class cubemaker : MonoBehaviour {
 			Instantiate (Cubeprefab, SpawnPosition, Quaternion.identity);
 		}
 	}
-
-			//Instantiate(Cubeprefab, new Vector3 (gameObject.GetComponent("cubeorigin") 2, 0));
-			//Cubeprefab.Instance = Instantiate(Cubeprefab, gameObject.GetComponent("cubeorigin"), gameObject.GetComponent("cubeorigin"))as Rigidbody;
-
-		}
-
-
-
 	
+	//Instantiate(Cubeprefab, new Vector3 (gameObject.GetComponent("cubeorigin") 2, 0));
+	//Cubeprefab.Instance = Instantiate(Cubeprefab, gameObject.GetComponent("cubeorigin"), gameObject.GetComponent("cubeorigin"))as Rigidbody;
+	
+}
